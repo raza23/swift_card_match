@@ -15,7 +15,7 @@ struct ContentView: View {
         return ZStack(content:{
             RoundedRectangle(cornerRadius: 10.0).stroke()
          Text("🐙")
-        })
+            }).foregroundColor(Color.orange).padding()
         
     }
 }
