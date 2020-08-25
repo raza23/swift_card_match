@@ -8,13 +8,26 @@
 
 import SwiftUI
 
+//func createCardContent(pairIndex: Int) -> String {
+//    return "📕"
+//}
+
 
 // Doorway for model with our view
 
 class EmojiMemoryGame {
 //    its a class because it is easy to share. However this can be bad because any view can use the models, "private set"
 //    solves that problem that only EmojiMemoryGame can play with the model.
-    private var model: MemoryGame<String> = MemoryGame<String>(numberOfPairsOfCards:2)
+    private var model: MemoryGame<String> = createMemoryGame()
+    
+    static func createMemoryGame() -> MemoryGame<String> {
+        
+        let emojis: Array<String> = ["😈","👻","👹"]
+        return MemoryGame<String>(numberOfPairsOfCards:2)  {pairIndex in
+        return emojis[pairIndex]
+            
+        }}
+    
     var cards: Array<MemoryGame<String>.Card>{
         return model.cards
     }
